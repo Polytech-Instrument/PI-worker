@@ -1,0 +1,34 @@
+<article class="product-card product-card--{{cardType}}">
+  <div class="product-card__top">
+    <div class="product-card__image-wrap">
+      {{image}}
+    </div>
+
+    <div class="product-card__info">
+      <div class="product-card__brand">{{brand}}</div>
+      <h2 class="product-card__title">{{title}}</h2>
+      <p class="product-card__description">{{description}}</p>
+    </div>
+
+    {{discount}}
+  </div>
+
+  {{surprise}}
+
+  <table class="product-card__rows">
+    <thead>
+      <tr>
+        <th>код</th>
+        <th>характеристики</th>
+        <th>мин.</th>
+        <th>упак.</th>
+        <th>цена</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{rows}}
+    </tbody>
+  </table>
+
+  {{video}}
+</article>
