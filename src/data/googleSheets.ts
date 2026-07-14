@@ -21,8 +21,15 @@ export async function fetchGoogleCsv(gid: string): Promise<string> {
 }
 
 function normalizeSheets(value: unknown): GoogleSheetInfo[] {
-  if (!Array.isArray(value)) return [];
-  return value
+  const list = Array.isArray(value)
+    ? value
+    : Array.isArray((value as any)?.value)
+      ? (value as any).value
+      : Array.isArray((value as any)?.sheets)
+        ? (value as any).sheets
+        : [];
+
+  return list
     .map((item: any) => ({
       gid: String(item.gid ?? item.id ?? ""),
       title: String(item.title ?? item.name ?? "")

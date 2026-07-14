@@ -52,10 +52,10 @@ export function startTelegramBot(): Bot | null {
         await ctx.replyWithDocument(new InputFile(result.pdfPath, result.fileName), {
           caption: `Готово: ${result.leaflets.length} листовок`
         });
-        await ctx.api.editMessageText(ctx.chat.id, status.message_id, "PDF отправлен.");
+        await ctx.api.editMessageText(status.chat.id, status.message_id, "PDF отправлен.");
       } catch (err) {
         const message = err instanceof Error ? err.message : String(err);
-        await ctx.api.editMessageText(ctx.chat.id, status.message_id, `Ошибка генерации: ${message}`);
+        await ctx.api.editMessageText(status.chat.id, status.message_id, `Ошибка генерации: ${message}`);
       }
     });
   });
